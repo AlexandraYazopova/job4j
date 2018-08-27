@@ -1,5 +1,5 @@
 /**
- * Package for Calculator task.
+ * Package for Calculator, Fit task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
