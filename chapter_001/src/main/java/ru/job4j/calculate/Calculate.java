@@ -1,9 +1,9 @@
 package ru.job4j.calculate;
 
 /**
-* Calculate.
-*
-* @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
+ * Calculate.
+ *
+ * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
  * @since 26.08.2018
  */
