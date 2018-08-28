@@ -1,5 +1,5 @@
 /**
- * Package for Condition, DummyBot task.
+ * Package test task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
