@@ -70,10 +70,11 @@ public class Triangle {
      * @param bc - a distance between b and c.
      * @return an existence of the triangle.
      */
-    private boolean exist(double ab, double ac, double bc) {
+    public boolean exist(double ab, double ac, double bc) {
 
-        return (ab + bc > ac) || (ab + ac > ab) || (bc + ac > ab);
+        return ((ab + bc) > ac) && ((ab + ac) > bc) && ((bc + ac) > ab);
 
     }
+
 
 }
