@@ -27,7 +27,6 @@ public class Max {
      * @return Maximum arg.
      */
     public int max(int first, int second, int third) {
-        int temp = this.max(first, second);
-        return this.max(temp, third);
+        return this.max(this.max(first, second), third);
     }
 }
