@@ -1,5 +1,5 @@
 /**
- * Package for Counter task.
+ * Package for Counter, Factorial task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
