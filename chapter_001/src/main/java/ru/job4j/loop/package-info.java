@@ -1,5 +1,5 @@
 /**
- * Package for Counter, Factorial, Board task.
+ * Package for Counter, Factorial, Board, Paint task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
