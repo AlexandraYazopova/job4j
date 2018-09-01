@@ -1,5 +1,5 @@
 /**
- * Package for Square task.
+ * Package for Square, FindLoop task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
