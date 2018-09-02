@@ -1,5 +1,5 @@
 /**
- * Package for Square, FindLoop, Turn, Check task.
+ * Package for Square, FindLoop, Turn, Check, ArrayChar task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
