@@ -60,7 +60,7 @@ public class MatrixCheckTest {
     }
 
     /**
-     * Test to check the diagonal of the array mono by true. Even amount.
+     * Test to check the diagonal of the array not mono. Even amount.
      */
     @Test
     public void whenDataNotMonoThenFalseEvenAmount() {
@@ -68,8 +68,8 @@ public class MatrixCheckTest {
         boolean[][] input = new boolean[][] {
                 {true, true, false, false},
                 {false, true, false, true},
-                {true, false, false, true},
-                {false, false, true, true}
+                {true, false, true, true},
+                {true, false, true, true}
         };
         boolean result = check.mono(input);
         assertThat(result, is(false));
