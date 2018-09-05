@@ -1,5 +1,5 @@
 /**
- * Package for Square, FindLoop, Turn, Check, ArrayChar, BubbleSort, Matrix, MatrixCheck task.
+ * Package for Square, FindLoop, Turn, Check, ArrayChar, BubbleSort, Matrix, MatrixCheck, ArrayDuplicate task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
