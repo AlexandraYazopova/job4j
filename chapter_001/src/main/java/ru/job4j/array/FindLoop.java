@@ -10,19 +10,19 @@ package ru.job4j.array;
 public class FindLoop {
 
     /**
-     * Method calculate - to create an array.
+     * Method indexOf - to find an element.
      * @param data -  the array.
      * @param el -  the target value.
      * @return The index of target value.
      */
     public int indexOf(int[] data, int el) {
-        int rst = -1;
+        int number = -1;
         for (int index = 0; index != data.length; index++) {
             if (data[index] == el) {
-                rst = index;
+                number = index;
                 break;
             }
         }
-        return rst;
+        return number;
     }
 }
