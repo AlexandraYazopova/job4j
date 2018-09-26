@@ -49,9 +49,10 @@ public class Tracker {
      * @param item новая заявка.
      */
     public void replace(String id, Item item) {
-        for (int i = 0; i != items.length; i++) {
+        for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
                 items[i] = item;
+                item.setId(id);
                 break;
             }
         }
@@ -62,7 +63,7 @@ public class Tracker {
      * @param id уникальный ключ заявки.
      */
     public void delete(String id) {
-        for (int i = 0; i != items.length; i++) {
+        for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, items.length - i - 1);
                 position--;
@@ -75,13 +76,7 @@ public class Tracker {
      * Метод, реализующий получение списка всех заявок в хранилище.
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int i = 0; i != result.length; i++) {
-                if (items[i] != null) {
-                    result[i] = this.items[i];
-                }
-            }
-        return result;
+        return Arrays.copyOf(items, position);
     }
 
     /**
@@ -106,7 +101,7 @@ public class Tracker {
     public Item[] findByName(String key) {
         Item[] result = new Item[this.position];
         int in = 0;
-        for (int index = 0; index != result.length; index++) {
+        for (int index = 0; index != position; index++) {
             if (items[index].getName().equals(key)) {
                 result[in] = this.items[index];
                 in++;
