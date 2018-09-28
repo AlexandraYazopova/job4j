@@ -48,28 +48,34 @@ public class Tracker {
      * @param id уникальный ключ заявки.
      * @param item новая заявка.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
                 items[i] = item;
                 item.setId(id);
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
      * Метод, реализующий удаление заявки по ее уникальному ключу в хранилище.
      * @param id уникальный ключ заявки.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean result = false;
         for (int i = 0; i != position; i++) {
             if (items[i] != null && items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, items.length - i - 1);
                 position--;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**

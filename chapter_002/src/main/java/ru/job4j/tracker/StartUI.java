@@ -76,7 +76,10 @@ public class StartUI {
             } else if (BYNAME.equals(answer)) {
                 this.findItemByName();
             } else if (EXIT.equals(answer)) {
+                System.out.println("------------ Работа завершена --------------");
                 exit = true;
+            } else {
+                System.out.println("------------ Некорректный ввод --------------");
             }
         }
     }
@@ -99,8 +102,13 @@ public class StartUI {
      */
     private void showItems() {
         System.out.println("------------ Список заявок --------------");
-        for (Item item : this.tracker.findAll()) {
-            System.out.println("Имя: " + item.getName() + ", описание: " + item.getDescription() + ", дата создания: " + item.getCreate() + ", id: " + item.getId());
+        Item[] item = this.tracker.findAll();
+        if (item.length != 0) {
+            for (Item i : item) {
+                System.out.println("Имя: " + i.getName() + ", описание: " + i.getDescription() + ", дата создания: " + i.getCreate() + ", id: " + i.getId());
+            }
+        } else {
+            System.out.println("------------ Список пуст -----------");
         }
     }
 
@@ -114,8 +122,13 @@ public class StartUI {
         String desc = this.input.ask("Введите новое описание заявки :");
         long date = Long.parseLong(this.input.ask("Введите дату :"));
         Item item = new Item(name, desc, date);
-        this.tracker.replace(id, item);
-        System.out.println("------------ Заявка с id : " + item.getId() + " изменена -----------");
+        boolean result = this.tracker.replace(id, item);
+        if (result) {
+            System.out.println("------------ Заявка с id : " + id + " изменена -----------");
+        } else {
+            System.out.println("------------ Заявка с id : " + id + " не найдена -----------");
+        }
+
     }
 
     /**
@@ -124,8 +137,12 @@ public class StartUI {
     private void deleteItem() {
         System.out.println("------------ Удаление заявки --------------");
         String id = this.input.ask("Введите id заявки :");
-        this.tracker.delete(id);
-        System.out.println("------------ Заявка с id : " + id + " удалена -----------");
+        boolean result = this.tracker.delete(id);
+        if (result) {
+            System.out.println("------------ Заявка с id : " + id + " удалена -----------");
+        } else {
+            System.out.println("------------ Заявка с id : " + id + " не найдена -----------");
+        }
     }
 
     /**
@@ -135,7 +152,11 @@ public class StartUI {
         System.out.println("------------ Поиск заявки по id --------------");
         String id = this.input.ask("Введите id заявки :");
         Item item = this.tracker.findById(id);
-        System.out.println("Имя: " + item.getName() + ", описание: " + item.getDescription() + ", дата создания: " + item.getCreate() + ", id: " + item.getId());
+        if (item != null) {
+            System.out.println("Имя: " + item.getName() + ", описание: " + item.getDescription() + ", дата создания: " + item.getCreate() + ", id: " + item.getId());
+        } else {
+            System.out.println("------------ Заявка с id : " + id + " не найдена -----------");
+        }
     }
 
     /**
@@ -144,8 +165,13 @@ public class StartUI {
     private void findItemByName() {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки :");
-        for (Item item : this.tracker.findByName(name)) {
-            System.out.println("Имя: " + item.getName() + ", описание: " + item.getDescription() + ", дата создания: " + item.getCreate() + ", id: " + item.getId());
+        Item[] item = this.tracker.findByName(name);
+        if (item.length != 0) {
+            for (Item i : item) {
+                System.out.println("Имя: " + i.getName() + ", описание: " + i.getDescription() + ", дата создания: " + i.getCreate() + ", id: " + i.getId());
+            }
+        } else {
+            System.out.println("------------ Заявок с именем : " + name + " не найдено -----------");
         }
     }
 
