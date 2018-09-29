@@ -75,6 +75,29 @@ public class Item {
         this.id = id;
     }
 
-
+    /**
+     * Переопределение метода toString,  чтобы выводить всю информацию о заявке.
+     */
+    @Override
+    public String toString() {
+        return "Item{"
+                +
+                "id='"
+                + id
+                + '\''
+                +
+                ", name='"
+                + name
+                + '\''
+                +
+                ", description='"
+                + description
+                + '\''
+                +
+                ", create="
+                + create
+                +
+                '}';
+    }
 
 }
