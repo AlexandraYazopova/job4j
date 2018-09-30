@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
 
+/**
+ * Класс StartUI - запуск приложения.
+ *
+ * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
+ * @version 1
+ * @since 23.09.2018
+ */
 public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
@@ -168,7 +175,7 @@ public class StartUI {
         Item[] item = this.tracker.findByName(name);
         if (item.length != 0) {
             for (Item i : item) {
-                System.out.println(item);
+                System.out.println(i);
             }
         } else {
             System.out.println("------------ Заявок с именем : " + name + " не найдено -----------");

@@ -9,7 +9,7 @@ package ru.job4j.tracker;
  */
 public class Item {
     /**
-     * уникальный ключ заявки.
+     * Уникальный ключ заявки.
      */
     private String id;
     /**
@@ -82,19 +82,19 @@ public class Item {
     public String toString() {
         return "Item{"
                 +
-                "id='"
+                "id = "
                 + id
-                + '\''
+                //+ '\''
                 +
-                ", name='"
+                ", name = "
                 + name
-                + '\''
+                //+ '\''
                 +
-                ", description='"
+                ", description = "
                 + description
-                + '\''
+                //+ '\''
                 +
-                ", create="
+                ", create = "
                 + create
                 +
                 '}';
