@@ -37,6 +37,13 @@ public class Item {
     }
 
     /**
+     * Метод setName - задать название заявки.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * Метод getName - узнать название заявки.
      * @return название заявки.
      */
@@ -45,11 +52,25 @@ public class Item {
     }
 
     /**
+     * Метод setDescription - задать описание заявки.
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
      * Метод getDescription - узнать описание заявки.
      * @return описание заявки.
      */
     public String getDescription() {
         return this.description;
+    }
+
+    /**
+     * Метод setCreate - задать дату создания заявки.
+     */
+    public void setCreate(long create) {
+        this.create = create;
     }
 
     /**
@@ -81,23 +102,11 @@ public class Item {
     @Override
     public String toString() {
         return "Item{"
-                +
-                "id = "
-                + id
-                //+ '\''
-                +
-                ", name = "
-                + name
-                //+ '\''
-                +
-                ", description = "
-                + description
-                //+ '\''
-                +
-                ", create = "
-                + create
-                +
-                '}';
+                + "id = " + id
+                + ", name = " + name
+                + ", description = " + description
+                + ", create = " + create
+                + '}';
     }
 
 }

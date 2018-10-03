@@ -55,10 +55,11 @@ public class StartUITest {
     @Test
     public void whenFindItemById() {
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("test 1", "desc", 30092018L));
-        Input input = new StubInput(new String[]{"4", item.getId(), "6"});
+        Item item1 = tracker.add(new Item("test 1", "desc", 30092018L));
+        Item item2 = tracker.add(new Item("test 2", "desc", 30092018L));
+        Input input = new StubInput(new String[]{"4", item1.getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findById(item.getId()).getName(), is("test 1"));
+        assertThat(tracker.findById(item1.getId()).getName(), is("test 1"));
     }
 
     /**
