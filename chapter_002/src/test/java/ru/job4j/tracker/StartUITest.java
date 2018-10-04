@@ -1,8 +1,10 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.core.Is.is;
@@ -37,14 +39,33 @@ public class StartUITest {
      */
     Item item3 = new Item("test 1", "desc", 30092018L);
 
-    /**
-    * Метод addItems - добавляет в трекер заявки, для тестирования методов, редактирование, удаление, поиск заявки.
+   /**
+    * Дефолтный вывод в консоль.
     */
+    private final PrintStream stdout = System.out;
+
+    /**
+     * Буфер для результата.
+     */
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    /**
+     * Метод loadOutput - заменяет стандартный вывод на вывод в пямять для тестирования.
+     */
     @Before
-    public void addItems() {
+    public void loadOutput() {
         tracker.add(item1);
         tracker.add(item2);
         tracker.add(item3);
+        System.setOut(new PrintStream(this.out));
+    }
+
+    /**
+     * Метод backOutput - возвращает обратно стандартный вывод в консоль.
+     */
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
     }
 
     /**
@@ -54,7 +75,30 @@ public class StartUITest {
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Input input = new StubInput(new String[]{"0", "test name", "desc", "30092018", "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[3].getName(), is("test name"));
+        assertThat(new String(out.toByteArray()), is(new StringBuilder()
+                .append("Меню.")
+                .append("\r\n0. Добавить заявку.")
+                .append("\r\n1. Показать все заявки.")
+                .append("\r\n2. Редактировать заявку.")
+                .append("\r\n3. Удалить заявку.")
+                .append("\r\n4. Найти заявку по id.")
+                .append("\r\n5. Найти заявку по имени")
+                .append("\r\n6. Выход")
+                .append("\r\n ")
+                .append("\r\n------------ Добавление новой заявки --------------")
+                .append("\r\n------------ Новая заявка с id : " + tracker.findAll()[3].getId() + " создана -----------")
+                .append("\r\nМеню.")
+                .append("\r\n0. Добавить заявку.")
+                .append("\r\n1. Показать все заявки.")
+                .append("\r\n2. Редактировать заявку.")
+                .append("\r\n3. Удалить заявку.")
+                .append("\r\n4. Найти заявку по id.")
+                .append("\r\n5. Найти заявку по имени")
+                .append("\r\n6. Выход")
+                .append("\r\n ")
+                .append("\r\n------------ Работа завершена --------------")
+                .append(System.lineSeparator())
+                .toString()));
     }
 
     /**
