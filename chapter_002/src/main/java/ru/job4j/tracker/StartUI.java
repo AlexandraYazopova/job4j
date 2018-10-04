@@ -112,7 +112,7 @@ public class StartUI {
         Item[] item = this.tracker.findAll();
         if (item.length != 0) {
             for (Item i : item) {
-                System.out.println(item);
+                System.out.println(i);
             }
         } else {
             System.out.println("------------ Список пуст -----------");
