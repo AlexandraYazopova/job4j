@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Класс StartUI - запуск приложения.
  *
@@ -8,39 +11,6 @@ package ru.job4j.tracker;
  * @since 23.09.2018
  */
 public class StartUI {
-    /**
-     * Константа меню для добавления новой заявки.
-     */
-    private static final String ADD = "0";
-
-    /**
-     * Константа меню для показа списка всех заявок.
-     */
-    private static final String ALL = "1";
-
-    /**
-     * Константа меню для редактирования заявки.
-     */
-    private static final String EDIT = "2";
-
-    /**
-     * Константа меню для удаления заявки.
-     */
-    private static final String DEL = "3";
-
-    /**
-     * Константа меню для поиска заявки по id.
-     */
-    private static final String BYID = "4";
-
-    /**
-     * Константа меню для поиска заявки по названию.
-     */
-    private static final String BYNAME = "5";
-    /**
-     * Константа для выхода из цикла.
-     */
-    private static final String EXIT = "6";
 
     /**
      * Получение данных от пользователя.
@@ -66,29 +36,18 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню (цифру) : ");
-            if (ADD.equals(answer)) {
-                this.createItem();
-            } else if (ALL.equals(answer)) {
-                this.showItems();
-            } else if (EDIT.equals(answer)) {
-                this.editItem();
-            } else if (DEL.equals(answer)) {
-                this.deleteItem();
-            } else if (BYID.equals(answer)) {
-                this.findItemById();
-            } else if (BYNAME.equals(answer)) {
-                this.findItemByName();
-            } else if (EXIT.equals(answer)) {
-                System.out.println("------------ Работа завершена --------------");
-                exit = true;
-            } else {
-                System.out.println("------------ Некорректный ввод --------------");
-            }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
         }
+        do {
+            menu.show();
+            int key = Integer.valueOf(input.ask("Выберите пукт меню:"));
+            menu.select(key);
+        } while (!"да".equals(this.input.ask("Выйти?(да): ")));
+
     }
 
     /**
@@ -192,8 +151,8 @@ public class StartUI {
         System.out.println("2. Редактировать заявку.");
         System.out.println("3. Удалить заявку.");
         System.out.println("4. Найти заявку по id.");
-        System.out.println("5. Найти заявку по имени");
-        System.out.println("6. Выход");
+        System.out.println("5. Найти заявку по имени.");
+        System.out.println("6. Выход.");
         System.out.println(" ");
     }
 
