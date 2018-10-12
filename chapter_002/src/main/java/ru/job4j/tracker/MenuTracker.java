@@ -47,14 +47,17 @@ class EditItem implements UserAction {
  * @since 10.10.2018
  */
 public class MenuTracker {
+
     /**
      * @param хранит ссылку на объект .
      */
     private Input input;
+
     /**
      * @param хранит ссылку на объект .
      */
     private Tracker tracker;
+
     /**
      * @param хранит ссылку на массив типа UserAction.
      */
@@ -81,14 +84,14 @@ public class MenuTracker {
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions.add(this.new AddItem());
         this.actions.add(new MenuTracker.ShowItems());
         this.actions.add(new EditItem());
         this.actions.add(this.new DeleteItem());
         this.actions.add(this.new FindItemById());
         this.actions.add(this.new FindItemsByName());
-        this.actions.add(this.new ExitProgram());
+        this.actions.add(this.new ExitProgram(ui));
     }
 
     /**
@@ -283,6 +286,19 @@ public class MenuTracker {
      */
     public class ExitProgram implements UserAction {
 
+        /**
+         * @param хранит ссылку на объект .
+         */
+        private final StartUI ui;
+
+        /**
+         * Конструктор.
+         * @param ui объект типа StartUI.
+         */
+        public ExitProgram(StartUI ui) {
+            this.ui = ui;
+        }
+
         @Override
         public int key() {
             return 6;
@@ -290,7 +306,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
-            System.exit(0);
+            this.ui.stop();
         }
 
         @Override
