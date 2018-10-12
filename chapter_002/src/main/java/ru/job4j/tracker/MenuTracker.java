@@ -19,6 +19,7 @@ class EditItem implements UserAction {
 
     @Override
     public void execute(Input input, Tracker tracker) {
+        System.out.println(" ");
         System.out.println("------------ Редактирование заявки --------------");
         String id = input.ask("Введите id заявки :");
         String name = input.ask("Введите новое имя заявки :");
@@ -130,6 +131,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            System.out.println(" ");
             System.out.println("------------ Добавление новой заявки --------------");
             String name = input.ask("Введите имя заявки :");
             String desc = input.ask("Введите описание заявки :");
@@ -162,6 +164,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            System.out.println(" ");
             System.out.println("------------ Список заявок --------------");
             Item[] item = tracker.findAll();
             if (item.length != 0) {
@@ -195,6 +198,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            System.out.println(" ");
             System.out.println("------------ Удаление заявки --------------");
             String id = input.ask("Введите id заявки :");
             boolean result = tracker.delete(id);
@@ -227,6 +231,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            System.out.println(" ");
             System.out.println("------------ Поиск заявки по id --------------");
             String id = input.ask("Введите id заявки :");
             Item item = tracker.findById(id);
@@ -259,6 +264,7 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            System.out.println(" ");
             System.out.println("------------ Поиск заявки по имени --------------");
             String name = input.ask("Введите имя заявки :");
             Item[] item = tracker.findByName(name);
@@ -306,6 +312,8 @@ public class MenuTracker {
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            System.out.println(" ");
+            System.out.println("------------ Работа завершена --------------");
             this.ui.stop();
         }
 

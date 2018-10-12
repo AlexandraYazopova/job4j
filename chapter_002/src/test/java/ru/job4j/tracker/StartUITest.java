@@ -65,9 +65,9 @@ public class StartUITest {
                                                 .append(System.lineSeparator())
                                                 .append("4. Найти заявку по id.")
                                                 .append(System.lineSeparator())
-                                                .append("5. Найти заявку по имени")
+                                                .append("5. Найти заявку по имени.")
                                                 .append(System.lineSeparator())
-                                                .append("6. Выход")
+                                                .append("6. Выход.")
                                                 .append(System.lineSeparator())
                                                 .append(" ")
                                                 .append(System.lineSeparator());
