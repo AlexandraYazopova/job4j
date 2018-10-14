@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
  * Интерфейс Input - реализует общение с пользователем.
  *
@@ -9,4 +11,9 @@ package ru.job4j.tracker;
  */
 public interface Input {
     String ask(String question);
+
+    String askDate(String question);
+
+    int ask(String question, List<Integer> range);
+
 }

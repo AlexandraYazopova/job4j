@@ -24,7 +24,7 @@ class EditItem implements UserAction {
         String id = input.ask("Введите id заявки :");
         String name = input.ask("Введите новое имя заявки :");
         String desc = input.ask("Введите новое описание заявки :");
-        long date = Long.parseLong(input.ask("Введите дату :"));
+        long date = Long.parseLong(input.askDate("Введите дату :"));
         Item item = new Item(name, desc, date);
         boolean result = tracker.replace(id, item);
         if (result) {
@@ -135,7 +135,7 @@ public class MenuTracker {
             System.out.println("------------ Добавление новой заявки --------------");
             String name = input.ask("Введите имя заявки :");
             String desc = input.ask("Введите описание заявки :");
-            long date = Long.parseLong(input.ask("Введите дату :"));
+            long date = Long.parseLong(input.askDate("Введите дату :"));
             Item item = new Item(name, desc, date);
             tracker.add(item);
             System.out.println("------------ Новая заявка с id : " + item.getId() + " создана -----------");
