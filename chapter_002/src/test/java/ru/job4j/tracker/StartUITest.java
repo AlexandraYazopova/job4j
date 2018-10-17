@@ -27,17 +27,17 @@ public class StartUITest {
     /**
      * Новый заявка 1.
      */
-    Item item1 = new Item("test 1", "desc", 30092018L);
+    Item item1 = new Item("test 1", "desc", "Mon Oct 15 13:11:40 MSK 2018");
 
     /**
      * Новый заявка 2.
      */
-    Item item2 = new Item("test 2", "desc", 30092018L);
+    Item item2 = new Item("test 2", "desc", "Mon Oct 15 13:11:40 MSK 2018");
 
     /**
      * Новый заявка 3.
      */
-    Item item3 = new Item("test 1", "desc", 30092018L);
+    Item item3 = new Item("test 1", "desc", "Mon Oct 15 13:11:40 MSK 2018");
 
    /**
     * Дефолтный вывод в консоль.
@@ -93,9 +93,9 @@ public class StartUITest {
     /**
      * Тест - Пользователь выбрал пункт меню - Добавить заявку.
      */
-    //Test
-    /**public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "30092018", "6"});
+    @Test
+    public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(new StringBuilder()
                 .append(menu)
@@ -107,16 +107,15 @@ public class StartUITest {
                 .append("------------ Работа завершена --------------")
                 .append(System.lineSeparator())
                 .toString()));
-    }*/
+    }
 
     /**
      * Тест - Пользователь выбрал пункт меню - Показать все заявки.
      */
-    //@Test
-    /**public void showAllItems() {
+    @Test
+    public void showAllItems() {
         Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
-        Item[] expect = new Item[] {item1, item2, item3};
         assertThat(new String(out.toByteArray()), is(new StringBuilder()
                 .append(menu)
                 .append("------------ Список заявок --------------")
@@ -131,14 +130,14 @@ public class StartUITest {
                 .append("------------ Работа завершена --------------")
                 .append(System.lineSeparator())
                 .toString()));
-    }*/
+    }
 
     /**
      * Тест - Пользователь выбрал пункт меню - Редактировать заявку.
      */
-    //@Test
-    /**public void whenUpdateItemThenTrackerHasUpdatedValue() {
-        Input input = new StubInput(new String[]{"2", item1.getId(), "test replace", "заменили заявку", "30092018", "6"});
+    @Test
+    public void whenUpdateItemThenTrackerHasUpdatedValue() {
+        Input input = new StubInput(new String[]{"2", String.valueOf(item1.getId()), "test", "заменили заявку", "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(new StringBuilder()
                 .append(menu)
@@ -150,14 +149,14 @@ public class StartUITest {
                 .append("------------ Работа завершена --------------")
                 .append(System.lineSeparator())
                 .toString()));
-    }*/
+    }
 
     /**
      * Тест - Пользователь выбрал пункт меню - Удалить заявку.
      */
-   // @Test
-    /**public void whenDeleteItemThenTrackerHasUpdatedValue() {
-        Input input = new StubInput(new String[]{"3", item1.getId(), "6"});
+    @Test
+    public void whenDeleteItemThenTrackerHasUpdatedValue() {
+        Input input = new StubInput(new String[]{"3", String.valueOf(item1.getId()), "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(new StringBuilder()
                 .append(menu)
@@ -169,14 +168,14 @@ public class StartUITest {
                 .append("------------ Работа завершена --------------")
                 .append(System.lineSeparator())
                 .toString()));
-    }*/
+    }
 
     /**
      * Тест - Пользователь выбрал пункт меню - Найти заявку по id.
      */
-    //@Test
-    /**public void whenFindItemById() {
-        Input input = new StubInput(new String[]{"4", item1.getId(), "6"});
+    @Test
+    public void whenFindItemById() {
+        Input input = new StubInput(new String[]{"4", String.valueOf(item1.getId()), "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(new StringBuilder()
                 .append(menu)
@@ -188,13 +187,13 @@ public class StartUITest {
                 .append("------------ Работа завершена --------------")
                 .append(System.lineSeparator())
                 .toString()));
-    }*/
+    }
 
     /**
      * Тест - Пользователь выбрал пункт меню - Найти заявку по имени.
      */
-    //@Test
-    /**public void whenFindItemByName() {
+    @Test
+    public void whenFindItemByName() {
         Input input = new StubInput(new String[]{"5", "test 1", "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(new StringBuilder()
@@ -209,5 +208,5 @@ public class StartUITest {
                 .append("------------ Работа завершена --------------")
                 .append(System.lineSeparator())
                 .toString()));
-    }*/
+    }
 }

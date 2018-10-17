@@ -39,8 +39,17 @@ public class Tracker {
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
      * @return Уникальный ключ.
      */
-    private String generateId() {
-        return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+    private int generateId() {
+     return Math.abs(RN.nextInt());
+    }
+
+    /**
+     * Метод generateDate - устанавливает дату заявки автоматически.
+     */
+    public String generateDate() {
+        Date date = new Date();
+        String dateCurrent = date.toString();
+        return dateCurrent;
     }
 
     /**
@@ -48,10 +57,10 @@ public class Tracker {
      * @param id уникальный ключ заявки.
      * @param item новая заявка.
      */
-    public boolean replace(String id, Item item) {
+    public boolean replace(int id, Item item) {
         boolean result = false;
         for (int i = 0; i != position; i++) {
-            if (items[i] != null && items[i].getId().equals(id)) {
+            if (items[i] != null && items[i].getId() == id) {
                 items[i] = item;
                 item.setId(id);
                 result = true;
@@ -65,10 +74,10 @@ public class Tracker {
      * Метод, реализующий удаление заявки по ее уникальному ключу в хранилище.
      * @param id уникальный ключ заявки.
      */
-    public boolean delete(String id) {
+    public boolean delete(int id) {
         boolean result = false;
         for (int i = 0; i != position; i++) {
-            if (items[i] != null && items[i].getId().equals(id)) {
+            if (items[i] != null && items[i].getId() == id) {
                 System.arraycopy(items, i + 1, items, i, items.length - i - 1);
                 position--;
                 result = true;
@@ -89,10 +98,10 @@ public class Tracker {
      * Метод, реализующий поиск заявки по ее уникальному ключу.
      * @param id уникальный ключ заявки.
      */
-    public Item findById(String id) {
+    public Item findById(int id) {
         Item result = null;
         for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
+            if (item != null && item.getId() == id) {
                 result = item;
                 break;
             }

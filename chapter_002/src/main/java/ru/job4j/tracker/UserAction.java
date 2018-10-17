@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Date;
+
 /**
  * Интерфейс UserAction - описывает днйствие пользователя.
  *
@@ -26,4 +28,5 @@ public interface UserAction {
      * @return Строка меню
      */
     String info();
+
 }

@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Класс StubInput - считывание введенных данных из консоли.
@@ -38,22 +38,18 @@ public class StubInput implements Input {
     }
 
     /**
-     * Метод askDate - задать пользователю вопрос о времени заявки, получить ответ в виде строки.
-     * @return ответ.
-     */
-    @Override
-    public String askDate(String question) {
-        return this.answers[position++];
-    }
-
-    /**
      * Метод ask - задать пользователю вопрос, получить ответ в виде числа.
      * @throw ответ.
      */
     @Override
-    public int ask(String question,  List<Integer> range) {
+    public int ask(String question, ArrayList<Integer> range) {
+        int key = Integer.valueOf(this.ask(question));
+        return range.indexOf(key);
+    }
 
-        //throw new UnsupportedOperationException();
-        return -1;
+    @Override
+    public int id(String question) {
+        int key = Integer.valueOf(this.ask(question));
+        return key;
     }
 }

@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 /**
  * Внешний класс EditItem - Редактировать заявку.
@@ -21,11 +21,10 @@ class EditItem implements UserAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println(" ");
         System.out.println("------------ Редактирование заявки --------------");
-        String id = input.ask("Введите id заявки :");
+        int id = input.id("Введите id заявки :");
         String name = input.ask("Введите новое имя заявки :");
         String desc = input.ask("Введите новое описание заявки :");
-        long date = Long.parseLong(input.askDate("Введите дату :"));
-        Item item = new Item(name, desc, date);
+        Item item = new Item(name, desc, tracker.generateDate());
         boolean result = tracker.replace(id, item);
         if (result) {
             System.out.println("------------ Заявка с id : " + id + " изменена -----------");
@@ -62,7 +61,7 @@ public class MenuTracker {
     /**
      * @param хранит ссылку на массив типа UserAction.
      */
-    private List<UserAction> actions = new ArrayList<>();
+    private ArrayList<UserAction> actions = new ArrayList<>();
 
     /**
      * Конструктор.
@@ -135,8 +134,7 @@ public class MenuTracker {
             System.out.println("------------ Добавление новой заявки --------------");
             String name = input.ask("Введите имя заявки :");
             String desc = input.ask("Введите описание заявки :");
-            long date = Long.parseLong(input.askDate("Введите дату :"));
-            Item item = new Item(name, desc, date);
+            Item item = new Item(name, desc, tracker.generateDate());
             tracker.add(item);
             System.out.println("------------ Новая заявка с id : " + item.getId() + " создана -----------");
         }
@@ -200,7 +198,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println(" ");
             System.out.println("------------ Удаление заявки --------------");
-            String id = input.ask("Введите id заявки :");
+            int id = input.id("Введите id заявки :");
             boolean result = tracker.delete(id);
             if (result) {
                 System.out.println("------------ Заявка с id : " + id + " удалена -----------");
@@ -233,7 +231,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println(" ");
             System.out.println("------------ Поиск заявки по id --------------");
-            String id = input.ask("Введите id заявки :");
+            int id = input.id("Введите id заявки :");
             Item item = tracker.findById(id);
             if (item != null) {
                 System.out.println(item);

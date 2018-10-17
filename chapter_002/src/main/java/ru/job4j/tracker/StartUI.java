@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Класс StartUI - запуск приложения.
@@ -49,7 +48,7 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        List<Integer> range = new ArrayList<>();
+        ArrayList<Integer> range = new ArrayList<>();
         menu.fillActions(this);
         for (int i = 0; i < menu.getActionsLentgh(); i++) {
             range.add(i);
@@ -59,7 +58,6 @@ public class StartUI {
             menu.show();
             menu.select(input.ask("Выберите пункт меню:", range));
         } while (this.work);
-
     }
 
     /**

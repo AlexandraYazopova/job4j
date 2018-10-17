@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Date;
+
 /**
  * Класс Item - описание заявки.
  *
@@ -11,7 +13,7 @@ public class Item {
     /**
      * Уникальный ключ заявки.
      */
-    private String id;
+    private int id;
     /**
      * Название заявки.
      */
@@ -25,12 +27,12 @@ public class Item {
     /**
      * Дата создания заявки.
      */
-    public long create;
+    public String create;
 
     /**
      * Конструктор Item - переопределение полей.
      */
-    public Item(String  name, String description, long create) {
+    public Item(String  name, String description, String create) {
         this.name = name;
         this.description = description;
         this.create = create;
@@ -69,7 +71,7 @@ public class Item {
     /**
      * Метод setCreate - задать дату создания заявки.
      */
-    public void setCreate(long create) {
+    public void setCreate(String create) {
         this.create = create;
     }
 
@@ -77,7 +79,7 @@ public class Item {
      * Метод getCreate - узнать дату создания заявки.
      * @return дата создания заявки.
      */
-    public long getCreate() {
+    public String getCreate() {
         return this.create;
     }
 
@@ -85,14 +87,14 @@ public class Item {
      * Метод getId - узнать уникальный ключ заявки.
      * @return уникальный ключ заявки.
      */
-    public String getId() {
+    public int getId() {
         return this.id;
     }
 
     /**
      * Метод setId - задать уникальный ключ заявки.
      */
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -105,7 +107,7 @@ public class Item {
                 + "id = " + id
                 + ", name = " + name
                 + ", description = " + description
-                + ", create = " + create
+                + ", date = " + create
                 + '}';
     }
 

@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ValidateInput extends ConsoleInput {
-    public int ask(String question, List<Integer> range) {
+    public int ask(String question, ArrayList<Integer> range) {
         boolean invalid = true;
         int value = -1;
         do {
@@ -19,17 +19,17 @@ public class ValidateInput extends ConsoleInput {
         return value;
     }
 
-    public String askDate(String question) {
+    public int id(String question) {
         boolean invalid = true;
-        long date = 0L;
+        int id = -1;
         do {
             try {
-                date = Long.parseLong(super.ask(question));
+                id = Integer.valueOf(super.ask(question));
                 invalid = false;
             } catch (NumberFormatException nfe) {
                 System.out.println("Пожалуйста введите корректное значение");
             }
         } while (invalid);
-        return String.valueOf(date);
+        return id;
     }
 }

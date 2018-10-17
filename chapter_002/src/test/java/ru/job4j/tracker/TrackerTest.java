@@ -19,11 +19,11 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("test1", "testDescription", 123L);
+        Item item1 = new Item("test1", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item1);
-        Item item2 = new Item("test2", "testDescription", 124L);
+        Item item2 = new Item("test2", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item2);
-        Item item3 = new Item("test3", "testDescription", 125L);
+        Item item3 = new Item("test3", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item3);
         Item[] expect = new Item[] {item1, item2, item3};
         assertThat(tracker.findAll(), is(expect));
@@ -36,11 +36,11 @@ public class TrackerTest {
     @Test
     public void whenDeleteFirstItem() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("test1", "testDescription1", 123L);
+        Item item1 = new Item("test1", "testDescription1", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item1);
-        Item item2 = new Item("test2", "testDescription2", 124L);
+        Item item2 = new Item("test2", "testDescription2", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item2);
-        Item item3 = new Item("test3", "testDescription3", 125L);
+        Item item3 = new Item("test3", "testDescription3", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item3);
         tracker.delete(item3.getId());
         Item[] expect = new Item[] {item1, item2};
@@ -54,9 +54,9 @@ public class TrackerTest {
     @Test
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
-        Item previous = new Item("test1", "testDescription", 123L);
+        Item previous = new Item("test1", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(previous);
-        Item next = new Item("test2", "testDescription2", 125L);
+        Item next = new Item("test2", "testDescription2", "Mon Oct 15 13:11:40 MSK 2018");
         next.setId(previous.getId());
         tracker.replace(previous.getId(), next);
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
@@ -68,11 +68,11 @@ public class TrackerTest {
     @Test
     public void whenFindItemWithNameTest2() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("test2", "testDescription", 123L);
+        Item item1 = new Item("test2", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item1);
-        Item item2 = new Item("test1", "testDescription", 124L);
+        Item item2 = new Item("test1", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item2);
-        Item item3 = new Item("test2", "testDescription", 125L);
+        Item item3 = new Item("test2", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item3);
         Item[] expect = new Item[] {item1, item3};
         assertThat(tracker.findByName("test2"), is(expect));
@@ -85,9 +85,9 @@ public class TrackerTest {
     @Test
     public void whenFindItemWithId() {
         Tracker tracker = new Tracker();
-        Item item1 = new Item("test1", "testDescription", 123L);
+        Item item1 = new Item("test1", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item1);
-        Item item2 = new Item("test2", "testDescription", 124L);
+        Item item2 = new Item("test2", "testDescription", "Mon Oct 15 13:11:40 MSK 2018");
         tracker.add(item2);
         assertThat(tracker.findById(item2.getId()), is(item2));
 
