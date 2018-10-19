@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Внешний класс EditItem - Редактировать заявку.
@@ -61,7 +61,7 @@ public class MenuTracker {
     /**
      * @param хранит ссылку на массив типа UserAction.
      */
-    private ArrayList<UserAction> actions = new ArrayList<>();
+    private List<UserAction> actions = new ArrayList<>();
 
     /**
      * Конструктор.

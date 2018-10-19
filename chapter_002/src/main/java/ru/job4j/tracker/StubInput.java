@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Класс StubInput - считывание введенных данных из консоли.
@@ -42,7 +42,7 @@ public class StubInput implements Input {
      * @throw ответ.
      */
     @Override
-    public int ask(String question, ArrayList<Integer> range) {
+    public int ask(String question, List<Integer> range) {
         int key = Integer.valueOf(this.ask(question));
         return range.indexOf(key);
     }
