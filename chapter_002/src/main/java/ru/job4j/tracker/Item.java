@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Date;
-
 /**
  * Класс Item - описание заявки.
  *
@@ -13,7 +11,7 @@ public class Item {
     /**
      * Уникальный ключ заявки.
      */
-    private int id;
+    private String id;
     /**
      * Название заявки.
      */
@@ -87,14 +85,14 @@ public class Item {
      * Метод getId - узнать уникальный ключ заявки.
      * @return уникальный ключ заявки.
      */
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
     /**
      * Метод setId - задать уникальный ключ заявки.
      */
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

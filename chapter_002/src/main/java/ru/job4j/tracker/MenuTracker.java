@@ -21,7 +21,7 @@ class EditItem implements UserAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println(" ");
         System.out.println("------------ Редактирование заявки --------------");
-        int id = input.id("Введите id заявки :");
+        String id = input.ask("Введите id заявки :");
         String name = input.ask("Введите новое имя заявки :");
         String desc = input.ask("Введите новое описание заявки :");
         Item item = new Item(name, desc, tracker.generateDate());
@@ -198,7 +198,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println(" ");
             System.out.println("------------ Удаление заявки --------------");
-            int id = input.id("Введите id заявки :");
+            String id = input.ask("Введите id заявки :");
             boolean result = tracker.delete(id);
             if (result) {
                 System.out.println("------------ Заявка с id : " + id + " удалена -----------");
@@ -231,7 +231,7 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println(" ");
             System.out.println("------------ Поиск заявки по id --------------");
-            int id = input.id("Введите id заявки :");
+            String id = input.ask("Введите id заявки :");
             Item item = tracker.findById(id);
             if (item != null) {
                 System.out.println(item);

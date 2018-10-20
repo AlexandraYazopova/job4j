@@ -39,8 +39,8 @@ public class Tracker {
      * Так как у заявки нет уникальности полей, имени и описание. Для идентификации нам нужен уникальный ключ.
      * @return Уникальный ключ.
      */
-    private int generateId() {
-     return Math.abs(RN.nextInt());
+    private String generateId() {
+     return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
     /**
@@ -57,10 +57,10 @@ public class Tracker {
      * @param id уникальный ключ заявки.
      * @param item новая заявка.
      */
-    public boolean replace(int id, Item item) {
+    public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i != position; i++) {
-            if (items[i] != null && items[i].getId() == id) {
+            if (items[i] != null && items[i].getId().equals(id)) {
                 items[i] = item;
                 item.setId(id);
                 result = true;
@@ -74,10 +74,10 @@ public class Tracker {
      * Метод, реализующий удаление заявки по ее уникальному ключу в хранилище.
      * @param id уникальный ключ заявки.
      */
-    public boolean delete(int id) {
+    public boolean delete(String id) {
         boolean result = false;
         for (int i = 0; i != position; i++) {
-            if (items[i] != null && items[i].getId() == id) {
+            if (items[i] != null && items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, items.length - i - 1);
                 position--;
                 result = true;
@@ -98,10 +98,10 @@ public class Tracker {
      * Метод, реализующий поиск заявки по ее уникальному ключу.
      * @param id уникальный ключ заявки.
      */
-    public Item findById(int id) {
+    public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
-            if (item != null && item.getId() == id) {
+            if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
             }

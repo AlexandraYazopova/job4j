@@ -45,13 +45,4 @@ public class ConsoleInput implements Input {
             throw new MenuOutException("Введите номер пункта меню.");
         }
     }
-
-    /**
-     * Метод ask(String question) реализует общение с пользователем и получение данных от пользователя в виде числа.
-     */
-    @Override
-    public int id(String question) {
-        int key = Integer.valueOf(this.ask(question));
-        return key;
-    }
 }

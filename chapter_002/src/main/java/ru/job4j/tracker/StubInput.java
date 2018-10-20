@@ -44,12 +44,17 @@ public class StubInput implements Input {
     @Override
     public int ask(String question, List<Integer> range) {
         int key = Integer.valueOf(this.ask(question));
-        return range.indexOf(key);
-    }
-
-    @Override
-    public int id(String question) {
-        int key = Integer.valueOf(this.ask(question));
-        return key;
+        boolean exist = false;
+        for (Integer value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Введите номер пункта меню.");
+        }
     }
 }

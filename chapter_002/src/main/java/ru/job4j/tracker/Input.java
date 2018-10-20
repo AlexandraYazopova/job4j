@@ -14,6 +14,4 @@ public interface Input {
 
     int ask(String question, List<Integer> range);
 
-    int id(String question);
-
 }
