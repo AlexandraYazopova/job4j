@@ -10,11 +10,15 @@ import java.util.List;
  * @version 1
  * @since 10.10.2018
  */
-class EditItem implements UserAction {
+class EditItem extends BaseAction {
 
-    @Override
-    public int key() {
-        return 2;
+    /**
+     * Конструктор.
+     * @param key - ключ.
+     * @param name - название.
+     */
+    public EditItem(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -31,11 +35,6 @@ class EditItem implements UserAction {
         } else {
             System.out.println("------------ Заявка с id : " + id + " не найдена -----------");
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Редактировать заявку.");
     }
 }
 
@@ -85,13 +84,13 @@ public class MenuTracker {
      * Метод заполняет массив пунктами меню.
      */
     public void fillActions(StartUI ui) {
-        this.actions.add(this.new AddItem());
-        this.actions.add(new MenuTracker.ShowItems());
-        this.actions.add(new EditItem());
-        this.actions.add(this.new DeleteItem());
-        this.actions.add(this.new FindItemById());
-        this.actions.add(this.new FindItemsByName());
-        this.actions.add(this.new ExitProgram(ui));
+        this.actions.add(this.new AddItem(0, "Добавить заявку."));
+        this.actions.add(new MenuTracker.ShowItems(1, "Показать все заявки."));
+        this.actions.add(new EditItem(2, "Редактировать заявку."));
+        this.actions.add(this.new DeleteItem(3, "Удалить заявку."));
+        this.actions.add(this.new FindItemById(4, "Найти заявку по id."));
+        this.actions.add(this.new FindItemsByName(5, "Найти заявку по имени."));
+        this.actions.add(this.new ExitProgram(6, "Выход.", ui));
     }
 
     /**
@@ -132,11 +131,15 @@ public class MenuTracker {
      * @version 1
      * @since 10.10.2018
      */
-    public class AddItem implements UserAction {
+    public class AddItem extends BaseAction {
 
-        @Override
-        public int key() {
-            return 0;
+        /**
+         * Конструктор.
+         * @param key - ключ.
+         * @param name - название.
+         */
+        public AddItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -149,12 +152,6 @@ public class MenuTracker {
             tracker.add(item);
             System.out.println("------------ Новая заявка с id : " + item.getId() + " создана -----------");
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Добавить заявку.");
-        }
-
     }
 
     /**
@@ -164,11 +161,15 @@ public class MenuTracker {
      * @version 1
      * @since 10.10.2018
      */
-    public static class ShowItems implements UserAction {
+    public static class ShowItems extends BaseAction {
 
-        @Override
-        public int key() {
-            return 1;
+        /**
+         * Конструктор.
+         * @param key - ключ.
+         * @param name - название.
+         */
+        public ShowItems(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -184,11 +185,6 @@ public class MenuTracker {
                 System.out.println("------------ Список пуст -----------");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Показать все заявки.");
-        }
     }
 
     /**
@@ -198,11 +194,15 @@ public class MenuTracker {
      * @version 1
      * @since 10.10.2018
      */
-    public class DeleteItem implements UserAction {
+    public class DeleteItem extends BaseAction {
 
-        @Override
-        public int key() {
-            return 3;
+        /**
+         * Конструктор.
+         * @param key - ключ.
+         * @param name - название.
+         */
+        public DeleteItem(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -217,11 +217,6 @@ public class MenuTracker {
                 System.out.println("------------ Заявка с id : " + id + " не найдена -----------");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Удалить заявку.");
-        }
     }
 
     /**
@@ -231,11 +226,15 @@ public class MenuTracker {
      * @version 1
      * @since 10.10.2018
      */
-    public class FindItemById implements UserAction {
+    public class FindItemById extends BaseAction {
 
-        @Override
-        public int key() {
-            return 4;
+        /**
+         * Конструктор.
+         * @param key - ключ.
+         * @param name - название.
+         */
+        public FindItemById(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -250,11 +249,6 @@ public class MenuTracker {
                 System.out.println("------------ Заявка с id : " + id + " не найдена -----------");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Найти заявку по id.");
-        }
     }
 
     /**
@@ -264,11 +258,15 @@ public class MenuTracker {
      * @version 1
      * @since 10.10.2018
      */
-    public class FindItemsByName implements UserAction {
+    public class FindItemsByName extends BaseAction {
 
-        @Override
-        public int key() {
-            return 5;
+        /**
+         * Конструктор.
+         * @param key - ключ.
+         * @param name - название.
+         */
+        public FindItemsByName(int key, String name) {
+            super(key, name);
         }
 
         @Override
@@ -285,11 +283,6 @@ public class MenuTracker {
                 System.out.println("------------ Заявок с именем : " + name + " не найдено -----------");
             }
         }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Найти заявку по имени.");
-        }
     }
 
     /**
@@ -299,7 +292,7 @@ public class MenuTracker {
      * @version 1
      * @since 10.10.2018
      */
-    public class ExitProgram implements UserAction {
+    public class ExitProgram extends BaseAction {
 
         /**
          * @param хранит ссылку на объект .
@@ -308,15 +301,13 @@ public class MenuTracker {
 
         /**
          * Конструктор.
-         * @param ui объект типа StartUI.
+         * @param key - ключ.
+         * @param name - название.
+         * @param ui - ссылка на объект StartUI.
          */
-        public ExitProgram(StartUI ui) {
+        public ExitProgram(int key, String name, StartUI ui) {
+            super(key, name);
             this.ui = ui;
-        }
-
-        @Override
-        public int key() {
-            return 6;
         }
 
         @Override
@@ -324,11 +315,6 @@ public class MenuTracker {
             System.out.println(" ");
             System.out.println("------------ Работа завершена --------------");
             this.ui.stop();
-        }
-
-        @Override
-        public String info() {
-            return String.format("%s. %s", this.key(), "Выход.");
         }
     }
 }
