@@ -82,7 +82,7 @@ public class MenuTracker {
     }
 
     /**
-     * Метод заполняет массив.
+     * Метод заполняет массив пунктами меню.
      */
     public void fillActions(StartUI ui) {
         this.actions.add(this.new AddItem());
@@ -92,6 +92,17 @@ public class MenuTracker {
         this.actions.add(this.new FindItemById());
         this.actions.add(this.new FindItemsByName());
         this.actions.add(this.new ExitProgram(ui));
+    }
+
+    /**
+     * Метод заполняет массив номерами пунктов меню.
+     */
+    public List<Integer> fillNumberMenu() {
+        List<Integer> range = new ArrayList<>();
+        for (int i = 0; i < getActionsLentgh(); i++) {
+            range.add(i);
+        }
+        return range;
     }
 
     /**
