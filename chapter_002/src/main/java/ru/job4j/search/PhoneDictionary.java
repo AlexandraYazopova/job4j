@@ -3,6 +3,13 @@ package ru.job4j.search;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс PhoneDictionary - телефонный справочник.
+ *
+ * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
+ * @version 1
+ * @since 09.11.2018
+ */
 public class PhoneDictionary {
     /**
      * @param хранит ссылку на массив типа Person.
@@ -23,10 +30,10 @@ public class PhoneDictionary {
     public List<Person> find(String key) {
         List<Person> result = new ArrayList<>();
         for (Person i : persons) {
-            if (persons.iterator().next().getName().contains(key)
-                    | persons.iterator().next().getSurname().contains(key)
-                    | persons.iterator().next().getPhone().contains(key)
-                    | persons.iterator().next().getAddress().contains(key)
+            if (i.getName().contains(key)
+                    || i.getSurname().contains(key)
+                    || i.getPhone().contains(key)
+                    || i.getAddress().contains(key)
                 ) {
                 result.add(i);
             }

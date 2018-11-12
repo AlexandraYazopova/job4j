@@ -22,8 +22,14 @@ public class PhoneDictionaryTest {
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        List<Person> persons = phones.find("Petr");
-        assertThat(persons.iterator().next().getSurname(), is("Arsentev"));
+        phones.add(
+                new Person("Lesha", "Ivanov", "534872", "Moscow")
+        );
+        phones.add(
+                new Person("Serezha", "Petrov", "534872", "Moscow")
+        );
+        List<Person> persons = phones.find("Lesha");
+        assertThat(persons.iterator().next().getSurname(), is("Ivanov"));
     }
 
     /**
