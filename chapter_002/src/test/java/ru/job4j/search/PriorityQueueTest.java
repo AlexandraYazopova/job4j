@@ -22,14 +22,14 @@ public class PriorityQueueTest {
     @Test
     public void whenHigherPriorityOne() {
         PriorityQueue queue = new PriorityQueue();
-        queue.put(new Task("low", 5));
-        queue.put(new Task("urgent", 2));
-        queue.put(new Task("middle", 3));
-        queue.put(new Task("lower", 8));
-        queue.put(new Task("lower", 1));
-        queue.put(new Task("lower", 11));
+        queue.put(new Task("middle5", 5));
+        queue.put(new Task("urgent2", 2));
+        queue.put(new Task("middle3", 3));
+        queue.put(new Task("low8", 8));
+        queue.put(new Task("urgent1", 1));
+        queue.put(new Task("low11", 11));
         Task result = queue.take();
-        assertThat(result, is("urgent"));
+        assertThat(result.getDesc(), is("urgent1"));
     }
 
     /**

@@ -11,24 +11,15 @@ public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
 
     public void put(Task task) {
-        boolean addition = false;
-        if (tasks.size() != 0) {
-            for (Task i : tasks) {
-                if (task.getPriority() < i.getPriority()) {
-                    tasks.add(tasks.indexOf(i), task);
-                    addition = true;
-                    break;
-                }
+        int index = 0;
+        for (Task i : tasks) {
+            if (task.getPriority() < i.getPriority()) {
+                break;
             }
-            if (!addition) {
-                tasks.add(tasks.size(), task);
-
-            }
-        } else {
-            tasks.add(task);
+            index++;
         }
-
-    }
+        tasks.add(index, task);
+        }
 
     public Task take() {
         return this.tasks.poll();
