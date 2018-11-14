@@ -1,5 +1,5 @@
 /**
- * Package for ConvertList2Array task.
+ * Package for ConvertList2Array, ConvertMatrix2List task.
  *
  * @author Alexandra Yazopova (mailto:alexandra.yaz@gmail.com)
  * @version 1
