@@ -25,16 +25,19 @@ public class ConvertList2Array {
             cells = list.size() / rows + 1;
         }
         int[][] array = new int[rows][cells];
-        int index = 0;
-        for (int i = 0; i != rows; i++) {
-            for (int j = 0; j != cells; j++) {
-                if (index < list.size()) {
-                    array[i][j] = list.get(index++);
+        int i = 0;
+        int j = 0;
+        for (Integer value : list) {
+                if (j != cells) {
+                    array[i][j] = value;
+                    j++;
                 } else {
-                    array[i][j] = 0;
+                    i++;
+                    j = 0;
+                    array[i][j] = value;
+                    j++;
                 }
             }
-        }
         return array;
     }
 }
