@@ -1,9 +1,9 @@
 package ru.job4j.list;
 
+import org.hamcrest.core.Is;
+import org.junit.Assert;
 import org.junit.Test;
 import java.util.Arrays;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Test.
@@ -28,7 +28,7 @@ public class ConvertList2ArrayTest {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        assertThat(result, is(expect));
+        Assert.assertThat(result, Is.is(expect));
     }
 
     /**
@@ -47,7 +47,7 @@ public class ConvertList2ArrayTest {
                 {5, 6},
                 {7, 8}
         };
-        assertThat(result, is(expect));
+        Assert.assertThat(result, Is.is(expect));
     }
 
     /**
@@ -65,7 +65,7 @@ public class ConvertList2ArrayTest {
                 {4, 5, 6},
                 {7, 0, 0}
         };
-        assertThat(result, is(expect));
+        Assert.assertThat(result, Is.is(expect));
     }
 
     /**
@@ -85,6 +85,6 @@ public class ConvertList2ArrayTest {
                 {7, 8},
                 {9, 0}
         };
-        assertThat(result, is(expect));
+        Assert.assertThat(result, Is.is(expect));
     }
 }
