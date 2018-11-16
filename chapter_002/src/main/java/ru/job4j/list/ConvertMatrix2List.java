@@ -23,6 +23,7 @@ public class ConvertMatrix2List {
             for (int j : i) {
                 list.add(j);
             }
-        }return list;
+        }
+        return list;
     }
 }
