@@ -101,7 +101,7 @@ public class StartUITest {
                 .append(menu)
                 .append("------------ Добавление новой заявки --------------")
                 .append(System.lineSeparator())
-                .append("------------ Новая заявка с id : " + tracker.findAll()[3].getId() + " создана -----------")
+                .append("------------ Новая заявка с id : " + tracker.findAll().get(3).getId() + " создана -----------")
                 .append(System.lineSeparator())
                 .append(menu)
                 .append("------------ Работа завершена --------------")
