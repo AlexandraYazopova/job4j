@@ -1,5 +1,7 @@
 package ru.job4j.map;
 
+import java.util.Objects;
+
 /**
  * Класс User - описание пользователя.
  *
@@ -32,15 +34,34 @@ public class User {
         this.city = city;
     }
 
+    /**
+     * Метод getId - установка id пользователя
+     * @return id пользователя.
+     */
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    /**
+     * Переопределение equals()
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        User user = (User) obj;
+        return id == user.id && name.equals(user.name) && city.equals(user.city);
     }
 
-    public String getCity() {
-        return city;
+    /**
+     * Переопределение hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, city);
     }
 }

@@ -33,9 +33,10 @@ public class UserConvertTest {
                 new User(3, "Olga", "Kolomna")
         );
         HashMap<Integer, User> result = map.convert(list);
-
-        Assert.assertThat(result.get(1).getName(), Is.is("Ivan"));
-        Assert.assertThat(result.get(2).getName(), Is.is("Petr"));
-        Assert.assertThat(result.get(3).getName(), Is.is("Olga"));
+        HashMap<Integer, User> expect = new HashMap<>();
+        expect.put(1, new User(1, "Ivan", "Moscow"));
+        expect.put(2, new User(2, "Petr", "Tver'"));
+        expect.put(3, new User(3, "Olga", "Kolomna"));
+        Assert.assertThat(result, Is.is(expect));
     }
 }
