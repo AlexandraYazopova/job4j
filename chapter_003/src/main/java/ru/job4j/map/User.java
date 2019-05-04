@@ -58,10 +58,16 @@ public class User {
     }
 
     /**
-     * Переопределение hashCode()
+     * Переопределение hashCode() вручную
      */
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, city);
+        int result = 17;
+        result = 37 * result + id;
+        result = 37 * result + name.hashCode();
+        result = 37 * result + city.hashCode();
+        return result;
+
+        //Переопределение hashCode() авто -  return Objects.hash(id, name, city);
     }
 }
